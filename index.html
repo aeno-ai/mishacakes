@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HI MISHA HEHE</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link
+      rel="icon"
+      type="gif/gif"
+      href="happy-cat-cat.gif"
+    />
+    <style>
+
+        body {
+            font-family: 'Poppins';
+            background-color: rgb(255, 218, 246);
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            
+            
+        }
+
+        #text {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .page-1 img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            width: clamp(10rem, 20vw, 25rem);
+            height: clamp(10rem, 20vw, 25rem);
+        }
+
+        button {
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="page-1">
+            <h2 id="text">Hi, Misha!</h2>
+            <img src="happy-cat-cat.gif" alt="" id="gif">
+            <div><button onclick="nextPage()" id="btn">Next</button></div>
+        </div>
+    </div>
+    <script>
+
+        const pages = [
+                {text: "I know u had a long day today.", gif: "cat-in-peach-box.gif"},
+                {text: "I just want you to know that I'm so proud of you, and for being productive too!", gif: "peach-and-goma-hugging.gif"},
+                {text: "You're probably sleeping right now as I make this.", gif: "cat-sleeping.gif"},
+                {text: "So I wish you a goodnight!", gif: "goodnight-cat.gif"},
+                {text: "One more thing though :'))", gif: "happy-cat-cat.gif"},
+                {text: "I'm so sorry if I did make you wait. I thought you were doing something too huhu", gif: "angry-white-cat.gif"},
+                {text: "You're probably mad at me right now.", gif: "cat-shouting.gif"},
+                {text: "And you have the right to be mad. I understand and I hope you forgive me T.T", gif:"cat-chasing.gif"},
+                {text: "But still, thank you for tonight! I appreciate that you still spent time with me.", gif: "cat-hug-cute.gif"}
+            ]
+
+        let currentPage = 0;
+        var button = document.getElementById("btn");
+
+        function nextPage(){
+            
+            let audio = new Audio("click-sound.mp3"); 
+            audio.play();
+
+            if (currentPage === pages.length){
+                button.innerText = "Last Page";
+                currentPage = 0;
+            }
+            
+            else {
+                document.getElementById("text").innerText = pages[currentPage].text;
+                document.getElementById("gif").src = pages[currentPage].gif;
+                currentPage += 1;
+            }
+        }
+    </script>
+</body>
+</html>
